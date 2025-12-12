@@ -1,19 +1,19 @@
 let mode = 0  // 0 = OUT, 1 = IN
 let autoMode = false
 
-// Button A → OUT mode (реакция по външна светлина)
+// Button A → OUT mode 
 input.onButtonPressed(Button.A, function () {
     mode = 0
     autoMode = true
     basic.showString("OUT")
 })
 
-// Button B → IN mode + автоматично затваряне
+// Button B → IN mode + automatic closing
 input.onButtonPressed(Button.B, function () {
     mode = 1
     autoMode = true
     basic.showString("IN")
-    closeBlinds()   // Затваря веднага
+    closeBlinds()   // closes immediately
 })
 
 // Open blinds (servo at 0°)
@@ -27,11 +27,11 @@ function closeBlinds() {
 }
 
 basic.forever(function () {
-    if (!autoMode) return   // ако не е включен автоматичен режим → нищо не прави
+    if (!autoMode) return   // if the automatic mode is not enabled → does nothing
 
-    let light = input.lightLevel()  // 0–255, но реално 0–80
+    let light = input.lightLevel()  // 0–255, but for real 0–80
 
-    // Нови, по-чувствителни прагове
+    
     let openThreshold = 20
     let closeThreshold = 35
 
