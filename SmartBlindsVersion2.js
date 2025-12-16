@@ -1,4 +1,3 @@
-//In version 2 of the project, we use the built-in light sensors on the micro:bit
 let mode = 0  // 0 = OUT, 1 = IN
 let autoMode = false
 
